@@ -23,7 +23,7 @@ endif()
 
 
 # Kokkos folder creation 
-set(Kokkos_Source_DIR $ENV{HOME}/Kokkos/kokkos)
+set(Kokkos_Source_DIR $ENV{Kokkos_DIR})
 
 if(NOT EXISTS "${Kokkos_Source_DIR}/CMakeLists.txt")
 

@@ -1,12 +1,12 @@
 
 export pFlow_PROJECT_VERSION=v-1.0
 
-export pFlow_PROJECT="phasicFlow-$pFlow_PROJECT_VERSION"
+export pFlow_PROJECT="phasicFlow"
 
-projectDir="$HOME/PhasicFlow" 
-kokkosDir="$HOME/Kokkos/kokkos"
+projectDir="$HOME/research/phasicFlow" 
+kokkosDir="$HOME/research/phasicFlow/kokkos"
 
-export pFlow_PROJECT_DIR="$projectDir/$pFlow_PROJECT"
+export pFlow_PROJECT_DIR="$projectDir"
 
 # [WM_PROJECT_USER_DIR] - Location of user files
 export pFlow_PROJECT_USER_DIR="$projectDir/$USER-$pFlow_PROJECT_VERSION"
