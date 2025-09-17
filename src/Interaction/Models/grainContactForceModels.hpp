@@ -42,7 +42,6 @@ using nonLimitedCGRelativeLinearGrainRolling = grainRolling<cGRelativeLinear<fal
 using limitedCGNonLinearGrainRolling   = grainRolling<cGNonLinear<true>>;
 using nonLimitedCGNonLinearGrainRolling = grainRolling<cGNonLinear<false>>;
 
-
 }
 
 

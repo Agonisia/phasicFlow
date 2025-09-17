@@ -27,8 +27,7 @@ Licence:
 #include "normalRolling.hpp"
 #include "nonLinearMod.hpp"
 #include "supCF.hpp"
-#include "supRollingCDT.hpp"
-
+#include "supRollingCDT.hpp"   
 
 namespace pFlow::cfModels 
 {
@@ -43,8 +42,8 @@ using nonLimitedNonLinearNormalRolling 	= normalRolling<nonLinear<false>>;
 using limitedNonLinearModNormalRolling   = normalRolling<nonLinearMod<true>>;
 using nonLimitedNonLinearModNormalRolling  = normalRolling<nonLinearMod<false>>;
 
-using limitedSUPCDT = supRollingCDT<sup<true>>;
-using nonLimitedSUPCDT = supRollingCDT<sup<false>>;
+using limitedSUPRollingCDT = supRollingCDT<sup<true>>;  
+using nonLimitedSUPRollingCDT = supRollingCDT<sup<false>>;
 
 }
 
