@@ -1,0 +1,50 @@
+/* ------------------------------------------------------------------------- */  
+objectName  settingsDict;
+objectType  dictionary;
+fileFormat  ASCII;
+/*---------------------------------------------------------------------------*/
+
+run   rotatingDrumSmall;
+
+dt              0.00001;                         // 仿真时间步长 (s)
+
+startTime             0;                         // 仿真开始时间 (s)
+
+endTime              5;                          // 仿真结束时间 (s)
+
+saveInterval        0.1;                         // 保存仿真数据的时间间隔 (s)
+
+timePrecision         6;                         // 时间文件夹的最大位数
+
+g            (0 -9.8 0);                         // 重力加速度 (m/s²)
+
+includeObjects (diameter);                       // 指定输出的粒子数据字段，多个以空格分隔
+
+// 排除不必要的数据字段以节省存储空间
+// .dy1 后缀表示积分历史数据
+// rVelocity.dy1: 旋转速度的历史数据
+// pStructPosition.dy1: 粒子结构位置的历史数据
+// pStructVelocity.dy1: 粒子结构速度的历史数据
+excludeObjects (rVelocity.dy1 pStructPosition.dy1 pStructVelocity.dy1); 
+
+/* 数值积分选项
+	AdamsBashforth2: 二阶阿达姆斯-巴什福斯法
+	AdamsBashforth3: 三阶阿达姆斯-巴什福斯法
+	AdamsBashforth4: 四阶阿达姆斯-巴什福斯法
+	AdamsBashforth5: 五阶阿达姆斯-巴什福斯法
+*/
+
+integrationMethod       AdamsBashforth2;         	// 指定数值积分算法
+
+integrationHistory                  off;				 	// 是否启用积分历史数据
+
+/* 输出数据格式选项
+	ascii: ASCII文本格式，易读但文件较大
+	binary: 二进制格式，文件小但不可读
+*/
+
+writeFormat                       ascii;         	// ascii文本格式输出仿真数据
+
+timersReport                        Yes;         	// 是否启用性能计时器报告
+
+timersReportInterval               0.01;         	// 每0.01秒输出一次性能统计

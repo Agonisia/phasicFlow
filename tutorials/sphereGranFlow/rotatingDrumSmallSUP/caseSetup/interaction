@@ -1,0 +1,47 @@
+/* ------------------------------------------------------------------------- */
+objectName interaction;
+objectType dictionary;
+fileFormat  ASCII;
+/*---------------------------------------------------------------------------*/
+
+materials                   (prop1);           // 粒子集名称
+
+densities                  (1000.0);           //  [kg/m3]
+
+contactListType   sortedContactList; 
+
+contactSearch
+{
+
+	method          NBS;                         // 用于粒子间接触检测的广域搜索算法
+
+	updateInterval   10;
+
+	sizeRatio       1.1;
+
+	cellExtent     0.55;
+
+	adjustableBox   Yes;
+} 
+
+model
+{
+	contactForceModel           supLimited;
+
+	rollingFrictionModel        supRollingCDT;
+
+	scaleFactor                 1.0; 
+
+	Yeff  (1.0e6);                                // 有效杨氏模量 [Pa]
+
+	Geff  (0.8e6);                                // 有效剪切模量 [Pa]
+
+	nu    (0.25);                                 // 泊松比 [-]
+
+	en    (0.7);                                  // 法向恢复系数
+
+	mu    (0.3);                                  // 动态摩擦系数
+
+	mur   (0.1);                                  // 滚动摩擦系数
+}
+

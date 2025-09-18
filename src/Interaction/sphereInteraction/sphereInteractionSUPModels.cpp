@@ -23,21 +23,21 @@
 // ============ SUP 模型 ============
 
 // stationaryGeometry
-createInteraction(pFlow::cfModels::sup<true>, pFlow::stationaryGeometry);
-createInteraction(pFlow::cfModels::sup<false>, pFlow::stationaryGeometry);
+createInteraction(pFlow::cfModels::limitedSUPRollingCDT, pFlow::stationaryGeometry);
+createInteraction(pFlow::cfModels::nonLimitedSUPRollingCDT, pFlow::stationaryGeometry);
 
 // rotationAxisMotionGeometry
-createInteraction(pFlow::cfModels::sup<true>, pFlow::rotationAxisMotionGeometry);
-createInteraction(pFlow::cfModels::sup<false>, pFlow::rotationAxisMotionGeometry);
+createInteraction(pFlow::cfModels::limitedSUPRollingCDT, pFlow::rotationAxisMotionGeometry);
+createInteraction(pFlow::cfModels::nonLimitedSUPRollingCDT, pFlow::rotationAxisMotionGeometry);
 
 // vibratingMotionGeometry
-createInteraction(pFlow::cfModels::sup<true>, pFlow::vibratingMotionGeometry);
-createInteraction(pFlow::cfModels::sup<false>, pFlow::vibratingMotionGeometry);
+createInteraction(pFlow::cfModels::limitedSUPRollingCDT, pFlow::vibratingMotionGeometry);
+createInteraction(pFlow::cfModels::nonLimitedSUPRollingCDT, pFlow::vibratingMotionGeometry);
 
 // conveyorBeltMotionGeometry
-createInteraction(pFlow::cfModels::sup<true>, pFlow::conveyorBeltMotionGeometry);
-createInteraction(pFlow::cfModels::sup<false>, pFlow::conveyorBeltMotionGeometry);
+createInteraction(pFlow::cfModels::limitedSUPRollingCDT, pFlow::conveyorBeltMotionGeometry);
+createInteraction(pFlow::cfModels::nonLimitedSUPRollingCDT, pFlow::conveyorBeltMotionGeometry);
 
 // multiRotationAxisMotionGeometry
-createInteraction(pFlow::cfModels::sup<true>, pFlow::multiRotationAxisMotionGeometry);
-createInteraction(pFlow::cfModels::sup<false>, pFlow::multiRotationAxisMotionGeometry);	
+createInteraction(pFlow::cfModels::limitedSUPRollingCDT, pFlow::multiRotationAxisMotionGeometry);
+createInteraction(pFlow::cfModels::nonLimitedSUPRollingCDT, pFlow::multiRotationAxisMotionGeometry);

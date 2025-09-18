@@ -56,7 +56,14 @@ protected:
     bool readSUPDictionary(const dictionary& dict)
     {
         // 读取全局缩放因子
-        globalScaleFactor_ = dict.getValOrDefault<real>("scaleFactor", 1.0);
+        if(dict.containsDataEntry("scaleFactor"))  
+        {  
+            globalScaleFactor_ = dict.getVal<real>("scaleFactor");  
+        }  
+        else  
+        {  
+            globalScaleFactor_ = 1.0;  
+        }
         
         // 读取材料参数向量
         auto Yeff = dict.getVal<realVector>("Yeff");
@@ -70,21 +77,21 @@ protected:
         // 验证尺寸一致性
         if(nElem != nu.size())
         {
-            fatalErrorInFunction
+            fatalErrorInFunction<<
             "sizes of Yeff("<<nElem<<") and nu("<<nu.size()<<") do not match.\n";
             return false;
         }
         
         if(nElem != en.size())
         {
-            fatalErrorInFunction
+            fatalErrorInFunction<<
             "sizes of Yeff("<<nElem<<") and en("<<en.size()<<") do not match.\n";
             return false;
         }
         
         if(nElem != mu.size())
         {
-            fatalErrorInFunction
+            fatalErrorInFunction<<
             "sizes of Yeff("<<nElem<<") and mu("<<mu.size()<<") do not match.\n";
             return false;
         }
@@ -93,15 +100,15 @@ protected:
         uint32 nMat;
         if(!SUPArrayType::getN(nElem, nMat))
         {
-            fatalErrorInFunction
+            fatalErrorInFunction<<
             "sizes of properties do not match a symmetric array.\n";
             return false;
         }
         
         if(numMaterial_ != nMat)
         {
-            fatalErrorInFunction
-            "size mismatch for properties. Expected "<<numMaterial_
+            fatalErrorInFunction<<
+            "size mismatch for properties. Expected "<<numMaterial_<<
             " materials but got "<<nMat<<"\n";
             return false;
         }

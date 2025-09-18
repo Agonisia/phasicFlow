@@ -1,0 +1,53 @@
+/* ------------------------------------------------------------------------- */  
+objectName  domainDict;
+objectType  dictionary;
+fileFormat  ASCII;
+/*---------------------------------------------------------------------------*/
+
+// 全局仿真域：超出此域的所有粒子都将被删除
+globalBox                                        
+{
+	min (-0.12 -0.12 0.00);    // 仿真域的最小坐标点（左下后角）[m]
+	max (0.12   0.12 0.11);    // 仿真域的最大坐标点（右上前角）[m]
+}
+
+/*
+	边界类型
+	exit: 出口边界，粒子通过后被删除
+	periodic: 周期性边界，粒子通过一侧后从对侧进入
+	reflective: 反射边界，粒子碰撞后反弹
+*/
+
+// 边界条件设置
+boundaries
+{
+	left
+	{
+		type     exit; 
+	}
+
+	right
+	{
+		type     exit; 
+	}
+
+	bottom
+	{
+		type     exit;
+	}
+
+	top
+	{
+		type     exit; 
+	}
+
+	rear
+	{
+		type     exit; 
+	}
+
+	front
+	{
+		type     exit;
+	}
+}

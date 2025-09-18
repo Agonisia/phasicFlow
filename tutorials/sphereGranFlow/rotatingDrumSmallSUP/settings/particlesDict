@@ -1,0 +1,69 @@
+/* ------------------------------------------------------------------------- */  
+objectName  particlesDict;
+objectType  dictionary;
+fileFormat  ASCII;
+/*---------------------------------------------------------------------------*/
+
+// 设置粒子场属性
+setFields
+{
+	
+	defaultValue	 0;               					// 默认值设置				 
+	{
+		velocity        realx3  (0 0 0);  			// 线速度 [m/s]
+
+		acceleration    realx3  (0 0 0);  			// 线加速度 [m/s²]
+
+		rVelocity       realx3  (0 0 0);  			// 角速度 [rad/s]
+
+		shapeName       word    sphere1;  			// 粒子形状名称
+	}
+
+	selectors
+	{
+
+	}
+}
+
+/*
+	粒子初始位置分布选项
+	ordered: 按照指定的轴顺序和间距规则地放置粒子
+    distance：粒子中心之间的最小距离
+    numPoints：仿真中的粒子总数
+    axisOrder：填充空间的轴顺序，如(z x y)
+	random: 在指定区域内随机放置粒子
+	empty: 不放置任何粒子
+*/
+
+// 粒子位置初始化
+positionParticles                                 
+{
+	method         ordered;       						// 有序放置粒子
+
+	mortonSorting  Yes;           						// 基于莫顿码进行初始排序（似乎未实现）
+
+	orderedInfo																// 有序排列的参数信息
+	{
+		distance  0.004;          							// 粒子中心之间的最小距离 [m]
+
+		numPoints 30000;          							// 仿真中的粒子总数	
+
+		axisOrder (z y x);        							// 填充空间的轴顺序
+	}
+
+	/* 
+		填充区域选项
+		box: 长方体区域
+		sphere: 球形区域
+		cylinder: 圆柱形区域
+	*/
+
+	regionType      box;          						// 填充区域类型：长方体
+
+	boxInfo                       						// 长方体区域参数 
+	{
+		min (-0.08 -0.08 0.015);  							// 长方体的最小坐标点（左下后角）[m]
+		
+    max ( 0.08  0.08 0.098);              	// 长方体的最大坐标点（右上前角）[m]
+	}
+}

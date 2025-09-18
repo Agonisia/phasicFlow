@@ -34,7 +34,7 @@ public:
 		uint32 nMat;
 		if(!realSymArray_D::getN(mur.size(), nMat) || nMat != this->numMaterial())
 		{
-			fatalErrorInFunction
+			fatalErrorInFunction<<
 			"wrong number of values supplied in mur.\n";
 			return false;
 		}
