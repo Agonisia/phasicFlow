@@ -10,7 +10,7 @@ dt              0.00001;                         // 仿真时间步长 (s)
 
 startTime             0;                         // 仿真开始时间 (s)
 
-endTime              5;                          // 仿真结束时间 (s)
+endTime              3;                          // 仿真结束时间 (s)
 
 saveInterval        0.1;                         // 保存仿真数据的时间间隔 (s)
 

@@ -8,7 +8,7 @@ fileFormat  ASCII;
 setFields
 {
 	
-	defaultValue	 0;               					// 默认值设置				 
+	defaultValue	                						// 默认值设置				 
 	{
 		velocity        realx3  (0 0 0);  			// 线速度 [m/s]
 
