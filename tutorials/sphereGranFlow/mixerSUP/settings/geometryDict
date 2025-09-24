@@ -1,0 +1,56 @@
+/* ------------------------------------------------------------------------- */  
+objectName  geometryDict;
+objectType  dictionary;
+fileFormat  ASCII;
+/*---------------------------------------------------------------------------*/
+
+// 运动模型：绕轴旋转
+motionModel rotatingAxis;
+
+rotatingAxisInfo
+{
+  impellerRotation    // 叶轮旋转运动
+  {
+    p1        (0.0 0.0 0.0);   // 旋转轴起点
+    p2        (0.0 0.0 1.0);   // 旋转轴终点（Z轴）
+    omega     6.28;            // 旋转速度 (rad/s) ~60 RPM
+    startTime 2;               // 2秒后开始旋转
+  }
+}
+
+surfaces
+{
+  // 旋转叶轮, 半径42mm, 高度30mm
+  impeller
+  {
+    type     stlWall;          // STL壁面类型
+    file     impeller.stl;     // STL文件名
+    material prop2;            // 材料属性
+    motion   impellerRotation; // 应用旋转运动
+  }
+  
+  // 静止圆柱壁, 半径43mm, 高度100mm
+  cylinder
+  {
+    type      cylinderWall;    // 圆柱壁类型
+    p1        (0.0 0.0 0.0);   // 圆柱底部中心
+    p2        (0.0 0.0 0.1);   // 圆柱顶部中心（高度100mm）
+    radius1   0.043;           // 底部半径 43mm
+    radius2   0.043;           // 顶部半径 43mm
+    resolution 3600;           // 周向分辨率
+    material  prop2;           // 材料属性
+    motion    none;            // 静止不动
+  }
+  
+  // 底部封闭端面
+  bottom
+  {
+    type      planeWall;       // 平面壁
+    p1        (-0.043 -0.043 0.0);  // 左下角
+    p2        ( 0.043 -0.043 0.0);  // 右下角
+    p3        ( 0.043  0.043 0.0);  // 右上角
+    p4        (-0.043  0.043 0.0);  // 左上角
+    material  prop2;           // 材料属性
+    motion    none;            // 静止不动
+  }
+}

@@ -1,0 +1,43 @@
+/* ------------------------------------------------------------------------- */  
+objectName  particlesDict;
+objectType  dictionary;
+fileFormat  ASCII;
+/*---------------------------------------------------------------------------*/
+
+// 设置粒子场属性
+setFields
+{
+	
+	defaultValue	                						// 默认值设置				 
+	{
+		velocity        realx3  (0 0 0);  			// 线速度 [m/s]
+
+		acceleration    realx3  (0 0 0);  			// 线加速度 [m/s²]
+
+		rVelocity       realx3  (0 0 0);  			// 角速度 [rad/s]
+
+		shapeName       word    sphere1;  			// 粒子形状名称
+	}
+
+	selectors
+	{
+
+	}
+}
+
+/*
+	粒子初始位置分布选项
+	ordered: 按照指定的轴顺序和间距规则地放置粒子
+    distance: 粒子中心之间的最小距离
+    numPoints: 仿真中的粒子总数
+    axisOrder: 填充空间的轴顺序, 如(z x y)
+	random: 在指定区域内随机放置粒子
+	empty: 不放置任何粒子
+*/
+
+// 粒子位置初始化
+positionParticles                                 
+{
+	method         empty;       							// 不放置任何粒子
+}
+

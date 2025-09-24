@@ -1,0 +1,54 @@
+/* ------------------------------------------------------------------------- */ 
+objectName particleInsertion;
+objectType dicrionary;
+fileFormat  ASCII;
+/*---------------------------------------------------------------------------*/
+
+active                     yes;      			// 是否启用粒子插入
+
+/* 
+	插入粒子数:
+	factor1: 700000 
+*/
+feeder
+{
+	rate                  	3500;    				// 每批插入粒子数
+
+	timeControl         		simulationTime;
+
+	startTime            		0;
+
+	endTime              		5;
+
+	insertionInterval   		0.05;        		// 插入时间间隔 (s)
+
+	regionType          		cylinder;				// 插入区域形状: 圆柱形
+
+	cylinderInfo 
+	{
+		p1     (0.0 0.0 0.035);      					// 圆柱轴起点
+		p2     (0.0 0.0 0.095);      					// 圆柱轴终点
+		radius 0.03;              						// 半径30mm
+	}
+
+	/*
+		初始速度设置
+	*/
+	setFields
+	{
+		velocity    realx3 (0.0 0.0 -0.3);  	// 初始速度 (m/s)
+	}
+
+
+	/*
+		粒子混合设置
+		格式: [粒子名称] [比例]
+	*/
+	mixture  
+	{  
+		sphere1 1;  
+	}  
+
+}
+
+
