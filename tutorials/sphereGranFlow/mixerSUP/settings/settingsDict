@@ -11,13 +11,13 @@ dt              0.0000005;                       // 仿真时间步长 (s)
 
 startTime             0;                         // 仿真开始时间 (s)
 
-endTime              0.2;                          // 仿真结束时间 (s)
+endTime              0.15;                          // 仿真结束时间 (s)
 
 saveInterval        0.05;                         // 保存仿真数据的时间间隔 (s)
 
 timePrecision         6;                         // 时间文件夹的最大位数
 
-g            (0 -9.8 0);                         // 重力加速度 (m/s²)
+g            (0 0 -9.8);                         // 重力加速度 (m/s²)
 
 includeObjects (contactForce contactTorque);     // 指定输出的粒子数据字段，多个以空格分隔
 
@@ -48,4 +48,4 @@ writeFormat                       ascii;         	// ascii文本格式输出仿�
 
 timersReport                        No;         	// 是否启用性能计时器报告
 
-timersReportInterval               0.1;         	// 每0.1秒输出一次性能统计
+timersReportInterval               0.05;         	// 每0.05秒输出一次性能统计

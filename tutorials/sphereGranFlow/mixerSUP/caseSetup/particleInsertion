@@ -1,10 +1,10 @@
 /* ------------------------------------------------------------------------- */ 
 objectName particleInsertion;
-objectType dicrionary;
+objectType dictionary;
 fileFormat  ASCII;
 /*---------------------------------------------------------------------------*/
 
-active                     yes;      			// 是否启用粒子插入
+active                     No;      			// 是否启用粒子插入
 
 /* 
 	插入粒子数:

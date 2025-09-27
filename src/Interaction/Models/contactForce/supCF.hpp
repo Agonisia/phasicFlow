@@ -87,6 +87,7 @@ protected:
 
     // 读取材料参数向量
     auto Yeff = dict.getVal<realVector>("Yeff");   	// 有效杨氏模量
+    auto Geff = dict.getVal<realVector>("Geff");   	// 有效剪切模量
     auto nu = dict.getVal<realVector>("nu");       	// 泊松比
     auto gamma = dict.getVal<realVector>("gamma"); 	// 表面能密度
     auto en = dict.getVal<realVector>("en");       	// 法向恢复系数
@@ -123,13 +124,6 @@ protected:
       return false;
     }
 
-    // 从Yeff和nu计算Geff
-    realVector Geff("Geff", nElem);
-    ForAll(i, Yeff) {
-      // G = E / (2(1+ν))
-      Geff[i] = Yeff[i] / (2.0 * (1.0 + nu[i]));
-    }
-		
 		// TODO: 以上改动后续需要验证
     // 创建属性数组
     Vector<supProperties> prop("prop", nElem);
@@ -236,8 +230,8 @@ public:
     // ========== 步骤2：计算原始粒子的JKR-F接触力 ==========
 
     // 计算质量（原始粒子）
-    const real mi_o = (4.0 / 3.0) * Pi * pow(Ri_o, 3) * rho_[propId_i];	// 注意这里使用的更精确的体积公式
-    const real mj_o = (4.0 / 3.0) * Pi * pow(Rj_o, 3) * rho_[propId_j];
+    const real mi_o = 3 * Pi / 4 * pow(Ri_o, 3) * rho_[propId_i]; // 使用近似公式
+    const real mj_o = 3 * Pi / 4 * pow(Rj_o, 3) * rho_[propId_j];
     const real meff_o = (mi_o * mj_o) / (mi_o + mj_o);
 
     // JKR-F法向力（原始粒子尺度）

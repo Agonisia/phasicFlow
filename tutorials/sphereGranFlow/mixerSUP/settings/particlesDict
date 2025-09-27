@@ -38,6 +38,26 @@ setFields
 // 粒子位置初始化
 positionParticles                                 
 {
-	method         empty;       							// 不放置任何粒子
+	method         ordered;       							// 有序放置粒子
+
+	mortonSorting  Yes;           						// 基于莫顿码进行初始排序（似乎未实现）
+
+	orderedInfo																// 有序排列的参数信息
+	{
+		distance  0.001;          							// 粒子中心之间的最小距离 [m]
+
+		numPoints 10000;          							// 仿真中的粒子总数	
+
+		axisOrder (x y z);        							// 填充空间的轴顺序
+	}
+
+	regionType      cylinder;          						// 填充区域类型：长方体
+
+	cylinderInfo 
+	{
+		p1     (0.0 0.0 0.035);      					// 圆柱轴起点
+		p2     (0.0 0.0 0.095);      					// 圆柱轴终点
+		radius 0.03;              						// 半径30mm
+	}
 }
 

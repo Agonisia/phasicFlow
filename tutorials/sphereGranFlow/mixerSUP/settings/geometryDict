@@ -25,7 +25,7 @@ surfaces
   {
     type     stlWall;          // STL壁面类型
     file     impeller.stl;     // STL文件名
-    material prop2;            // 材料属性
+    material prop1;            // 材料属性
     motion   impellerRotation; // 应用旋转运动
   }
   
@@ -37,8 +37,8 @@ surfaces
     p2        (0.0 0.0 0.1);   // 圆柱顶部中心（高度100mm）
     radius1   0.043;           // 底部半径 43mm
     radius2   0.043;           // 顶部半径 43mm
-    resolution 3600;           // 周向分辨率
-    material  prop2;           // 材料属性
+    resolution 360;            // 周向分辨率
+    material  prop1;           // 材料属性
     motion    none;            // 静止不动
   }
   
@@ -50,7 +50,7 @@ surfaces
     p2        ( 0.043 -0.043 0.0);  // 右下角
     p3        ( 0.043  0.043 0.0);  // 右上角
     p4        (-0.043  0.043 0.0);  // 左上角
-    material  prop2;           // 材料属性
+    material  prop1;           // 材料属性
     motion    none;            // 静止不动
   }
 }
